@@ -4,6 +4,7 @@
 //! Programming with Flexz on Youtube
 
 import 'package:flutter/material.dart';
+import 'package:hive_do_dk/responsive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 ///
@@ -29,7 +30,7 @@ Future<void> main() async {
     } else {}
   });
 
-  runApp(BaseWidget(child: const MyApp()));
+  runApp(BaseWidget(child:  MyApp()));
 }
 
 class BaseWidget extends InheritedWidget {
@@ -51,56 +52,121 @@ class BaseWidget extends InheritedWidget {
     return false;
   }
 }
-
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Hive Todo App',
-      theme: ThemeData(
-        textTheme: const TextTheme(
-          headline1: TextStyle(
-            color: Colors.black,
-            fontSize: 45,
-            fontWeight: FontWeight.bold,
+    return Sizer(
+        builder: MaterialApp(
+            // enableLog: false,
+            // navigatorObservers: [
+            //   // FirebaseAnalyticsObserver(analytics: FirebaseAnalytics.instance),
+            // ],
+            builder: (context, child) {
+              return MediaQuery(
+                data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
+                child: child!,
+              );
+            },
+          debugShowCheckedModeBanner: false,
+          title: 'Flutter Hive Todo App',
+          theme: ThemeData(
+            textTheme: const TextTheme(
+              headline1: TextStyle(
+                color: Colors.black,
+                fontSize: 45,
+                fontWeight: FontWeight.bold,
+              ),
+              subtitle1: TextStyle(
+                color: Colors.grey,
+                fontSize: 16,
+                fontWeight: FontWeight.w300,
+              ),
+              headline2: TextStyle(
+                color: Colors.white,
+                fontSize: 21,
+              ),
+              headline3: TextStyle(
+                color: Color.fromARGB(255, 234, 234, 234),
+                fontSize: 14,
+                fontWeight: FontWeight.w400,
+              ),
+              headline4: TextStyle(
+                color: Colors.grey,
+                fontSize: 17,
+              ),
+              headline5: TextStyle(
+                color: Colors.grey,
+                fontSize: 16,
+              ),
+              subtitle2: TextStyle(
+                color: Colors.black,
+                fontWeight: FontWeight.w500,
+              ),
+              headline6: TextStyle(
+                fontSize: 40,
+                color: Colors.black,
+                fontWeight: FontWeight.w300,
+              ),
+            ),
           ),
-          subtitle1: TextStyle(
-            color: Colors.grey,
-            fontSize: 16,
-            fontWeight: FontWeight.w300,
-          ),
-          headline2: TextStyle(
-            color: Colors.white,
-            fontSize: 21,
-          ),
-          headline3: TextStyle(
-            color: Color.fromARGB(255, 234, 234, 234),
-            fontSize: 14,
-            fontWeight: FontWeight.w400,
-          ),
-          headline4: TextStyle(
-            color: Colors.grey,
-            fontSize: 17,
-          ),
-          headline5: TextStyle(
-            color: Colors.grey,
-            fontSize: 16,
-          ),
-          subtitle2: TextStyle(
-            color: Colors.black,
-            fontWeight: FontWeight.w500,
-          ),
-          headline6: TextStyle(
-            fontSize: 40,
-            color: Colors.black,
-            fontWeight: FontWeight.w300,
-          ),
-        ),
-      ),
-      home: const HomeView(),
-    );
+          home: const HomeView(),
+
+
+        ));
   }
 }
+
+// class MyApp extends StatelessWidget {
+//   const MyApp({Key? key}) : super(key: key);
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       debugShowCheckedModeBanner: false,
+//       title: 'Flutter Hive Todo App',
+//       theme: ThemeData(
+//         textTheme: const TextTheme(
+//           headline1: TextStyle(
+//             color: Colors.black,
+//             fontSize: 45,
+//             fontWeight: FontWeight.bold,
+//           ),
+//           subtitle1: TextStyle(
+//             color: Colors.grey,
+//             fontSize: 16,
+//             fontWeight: FontWeight.w300,
+//           ),
+//           headline2: TextStyle(
+//             color: Colors.white,
+//             fontSize: 21,
+//           ),
+//           headline3: TextStyle(
+//             color: Color.fromARGB(255, 234, 234, 234),
+//             fontSize: 14,
+//             fontWeight: FontWeight.w400,
+//           ),
+//           headline4: TextStyle(
+//             color: Colors.grey,
+//             fontSize: 17,
+//           ),
+//           headline5: TextStyle(
+//             color: Colors.grey,
+//             fontSize: 16,
+//           ),
+//           subtitle2: TextStyle(
+//             color: Colors.black,
+//             fontWeight: FontWeight.w500,
+//           ),
+//           headline6: TextStyle(
+//             fontSize: 40,
+//             color: Colors.black,
+//             fontWeight: FontWeight.w300,
+//           ),
+//         ),
+//       ),
+//       home: const HomeView(),
+//     );
+//   }
+// }

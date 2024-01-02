@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_typing_uninitialized_variables
 
 import 'package:flutter/material.dart';
+import 'package:hive_do_dk/responsive.dart';
 // import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 import 'package:intl/intl.dart';
 
@@ -218,6 +219,10 @@ class _TaskViewState extends State<TaskView> {
                         ),
                       ],
                     ),
+
+
+
+
                   ),
                 ),
 
@@ -435,13 +440,13 @@ class _TaskViewState extends State<TaskView> {
   SizedBox _buildTopText(TextTheme textTheme) {
     return SizedBox(
       width: double.infinity,
-      height: 100,
+      height: Responsive.height *10,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          const SizedBox(
-            width: 70,
+           SizedBox(
+            width: width_1_5,
             child: Divider(
               thickness: 2,
             ),

@@ -3,6 +3,7 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:hive_do_dk/responsive.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:lottie/lottie.dart';
 import 'package:flutter_slider_drawer/flutter_slider_drawer.dart';
@@ -107,14 +108,14 @@ class _HomeViewState extends State<HomeView> {
             Container(
               margin: const EdgeInsets.fromLTRB(55, 0, 0, 0),
               width: double.infinity,
-              height: 100,
+              height: Responsive.height *14,
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   /// CircularProgressIndicator
                   SizedBox(
-                    width: 25,
-                    height: 25,
+                    width: width_10,
+                    height: height_5,
                     child: CircularProgressIndicator(
                       valueColor:
                           const AlwaysStoppedAnimation(MyColors.primaryColor),
@@ -122,8 +123,8 @@ class _HomeViewState extends State<HomeView> {
                       value: checkDoneTask(tasks) / valueOfTheIndicator(tasks),
                     ),
                   ),
-                  const SizedBox(
-                    width: 25,
+                   SizedBox(
+                    width: height_5,
                   ),
 
                   /// Texts
@@ -155,7 +156,7 @@ class _HomeViewState extends State<HomeView> {
             /// Bottom ListView : Tasks
             SizedBox(
               width: double.infinity,
-              height: 585,
+              height: Responsive.height*75,
               child: tasks.isNotEmpty
                   ? ListView.builder(
                       physics: const BouncingScrollPhysics(),
@@ -165,15 +166,15 @@ class _HomeViewState extends State<HomeView> {
 
                         return Dismissible(
                           direction: DismissDirection.horizontal,
-                          background: Row(
+                          background:  Row(
                             mainAxisAlignment: MainAxisAlignment.center,
-                            children: const [
+                            children:  [
                               Icon(
                                 Icons.delete_outline,
                                 color: Colors.grey,
                               ),
                               SizedBox(
-                                width: 8,
+                                width: width_7,
                               ),
                               Text(MyString.deletedTask,
                                   style: TextStyle(
